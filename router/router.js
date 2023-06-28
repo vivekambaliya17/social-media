@@ -49,7 +49,8 @@ router.post('/login',passport.authenticate('local', { failureRedirect: '/sing' }
 })
 router.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 router.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/sigup' }), async(req,res)=>{
-    console.log(req.user);
+    try {
+        console.log(req.user);
     let email = req.user.emails[0].value
     let emailfind = await userschema.findOne({email: email})
     if(emailfind){
@@ -57,6 +58,10 @@ router.get('/auth/google/callback', passport.authenticate('google', { failureRed
     }
     let data = await userschema.create({email:email})
     return res.redirect('/')
+    } catch (error) {
+        console.log(error);
+    }
+    
 });
 
 module.exports =router
