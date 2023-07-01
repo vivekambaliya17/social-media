@@ -1,12 +1,12 @@
 const bcrypt = require('bcrypt');
 const userschema = require('../model/socialuser');
 const loclalstrtegy =require('passport-local').Strategy
-let localAuth =(passport)=>{
+let localAuth =(passport)=>{ 
     passport.use(new loclalstrtegy( async(username, password, done)=>{
         // console.log("1");
         try {
             let user = await userschema.findOne({username:username})
-            // console.log(user);
+            // console.log(user); 
         if(!user){
             return done(null, false)
         }

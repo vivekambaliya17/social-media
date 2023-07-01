@@ -12,12 +12,14 @@ let app = express();
 
 app.use(session({secret:'social'}))
 app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport.session()); 
 app.use(cookieParser())
 const bcrypt = require('bcrypt');
 app.set('view engine', 'ejs');
 app.set('views',__dirname+'/views');
 app.use(express.static(__dirname+'/public'));
+app.use(express.static((__dirname)));
+
 app.use(express.urlencoded({ extended:true}))
 app.use(express.json())
 app.use('/',router)

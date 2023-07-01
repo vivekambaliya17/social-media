@@ -3,9 +3,12 @@ const bcrypt = require('bcrypt');
 const passport = require('passport');
 
 const { home } = require('../controller/controller')
-const userschema = require('../model/socialuser')
+const userschema = require('../model/socialuser');
+const auth = require('../middleware/auth');
+const uploadIMG = require('../middleware/multer');
+const userpost = require('../model/userpost');
 let router = express.Router()
-router.get('/', home)
+router.get('/',auth, home)
 router.get('/sing', (req, res)=>{
     res.render('singin')
 })
@@ -63,5 +66,18 @@ router.get('/auth/google/callback', passport.authenticate('google', { failureRed
     }
     
 });
-
+router.get('/createpost' , (req,res)=>{
+    res.render('post')
+})
+router.post('/createpost' ,uploadIMG, async(req,res)=>{
+    let path =req.file.path
+    // console.log();
+    req.body.img = path
+    req.body.userid = req.session.passport.user
+    let data = await userpost.create(req.body);
+    res.send("done")
+})
+router.get('/profile',(req, res)=>{
+    res.render('profile')
+})
 module.exports =router
