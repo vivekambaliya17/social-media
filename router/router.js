@@ -1,12 +1,12 @@
 const express = require('express')
 const bcrypt = require('bcrypt');
 const passport = require('passport');
-
 const { home } = require('../controller/controller')
 const userschema = require('../model/socialuser');
 const auth = require('../middleware/auth');
 const uploadIMG = require('../middleware/multer');
 const userpost = require('../model/userpost');
+const userimg = require('../middleware/multerimg');
 let router = express.Router()
 router.get('/',auth, home)
 router.get('/sing', (req, res)=>{
@@ -28,8 +28,8 @@ router.post('/singup', async(req, res)=>{
                         req.body.password = hash
                         console.log(req.body.password);
                         let user = await userschema.create(req.body)
-                        console.log(user);
-                        res.render('index')
+                        req.session.passport={user : user._id};
+                        res.redirect('/userbio')
                     }
                 });
             }
@@ -70,14 +70,61 @@ router.get('/createpost' , (req,res)=>{
     res.render('post')
 })
 router.post('/createpost' ,uploadIMG, async(req,res)=>{
-    let path =req.file.path
-    // console.log();
+    let newuser = await userschema.findById(req.session.passport.user)
+    let path = req.file.path
     req.body.img = path
+    req.body.userimg = newuser.img
+    req.body.username = newuser.username
     req.body.userid = req.session.passport.user
+    console.log(req.body);
     let data = await userpost.create(req.body);
     res.send("done")
 })
 router.get('/profile',(req, res)=>{
     res.render('profile')
+})
+// user img resevie
+router.get('/userbio',(req, res)=>{
+    // console.log(req.session);
+    res.render('userbio')
+})
+router.post('/userbio',userimg ,async(req, res)=>{
+    let path = req.file.path
+    req.body.img = path
+    let user = await userschema.findByIdAndUpdate(req.session.passport.user , req.body)
+    res.render('index')
+})
+router.get('/allpost',async(req,res)=>{
+    let allPost = await userpost.find()
+    res.send(allPost)
+})
+router.get('/myUser',async(req,res)=>{
+    try {
+        let myUser = await userschema.findById(req.session.passport.user)
+        res.send(myUser)
+        
+    } catch (error) {
+        console.log(error);
+    }
+})
+router.get('/allpost',async(req,res)=>{
+    try {
+        let allPost = await userpost.find()
+        res.send(allPost)
+        
+    } catch (error) {
+        console.log(error);
+    }
+})
+// like button
+router.get('/like/:id',async(req, res) => {
+    // let finduser = await userschema.findById(req.session.passport.user)
+
+    // let value = false
+    // if()
+
+    // let id = req.params.id
+    // console.log(id);
+    // res.send("like")
 })
 module.exports =router

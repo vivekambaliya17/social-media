@@ -368,7 +368,17 @@
 		border-radius: var(--card-border-radius);
 		overflow: hidden;
 		margin: 0.7rem 0;
+		height: 500px;
+		width: 561px;
 	}
+	.middle .feed .photo img {
+		display: block;
+		/* width: 100%; */
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+
 	.middle .feed .action-button{
 		display: flex;
 		justify-content: space-between;

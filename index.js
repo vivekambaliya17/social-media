@@ -26,6 +26,5 @@ app.use('/',router)
 app.listen(9090,()=>{
     console.log(`localhost:9090`);
 // console.log(process.env.GOOGLE_CLIENT_ID);
-
     connection()
 })

@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css" />
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
@@ -45,7 +46,7 @@
             padding: 0 2rem;
         }
 
-        .btn {
+         .btns {
             display: inline-block;
             font: inherit;
             background: none;
@@ -55,7 +56,7 @@
             cursor: pointer;
         }
 
-        .btn:focus {
+        .btns:focus {
             outline: 0.5rem auto #4d90fe;
         }
 
@@ -90,6 +91,7 @@
 
         .profiles-image img {
             border-radius: 50%;
+            width: 80%;
         }
 
         .profiles-user-settings,
@@ -316,13 +318,6 @@
             }
         }
 
-        /*
-
-The following code will only run if your browser supports CSS grid.
-
-Remove or comment-out the code block below to see how the browser will fall-back to flexbox & floated styling. 
-
-*/
 
         @supports (display: grid) {
             .profiles {
@@ -339,7 +334,7 @@ Remove or comment-out the code block below to see how the browser will fall-back
 
             .gallery {
                 display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
                 grid-gap: 2rem;
             }
 
@@ -459,7 +454,7 @@ Remove or comment-out the code block below to see how the browser will fall-back
                     </div>
                 </a>
                 <div class="sidebar">
-                    <a class="menu-item active">
+                    <a href="/" class="menu-item" >
                         <span><i class="uil uil-home"></i></span>
                         <h3>Home</h3>
                     </a>
@@ -520,8 +515,8 @@ Remove or comment-out the code block below to see how the browser will fall-back
                     <a class="menu-item ">
                         <span><i class="uil uil-analytics"></i></span>
                         <h3>Analytics</h3>
-                    </a>
-                    <a href="/profile" class="menu-item ">
+                    </a >
+                    <a href="/profile" class="menu-item active ">
                         <span><i class="uil uil-palette"></i></span>
                         <h3>profiles</h3>
                     </a>
@@ -547,9 +542,9 @@ Remove or comment-out the code block below to see how the browser will fall-back
 
                         <h1 class="profiles-user-name">janedoe_</h1>
 
-                        <button class="btn profiles-edit-btn">Edit profiles</button>
+                        <button class="btns profiles-edit-btn">Edit profiles</button>
 
-                        <button class="btn profiles-settings-btn" aria-label="profiles settings"><i class="fas fa-cog"
+                        <button class="btns profiles-settings-btn" aria-label="profiles settings"><i class="fas fa-cog"
                                 aria-hidden="true"></i></button>
 
                     </div>
