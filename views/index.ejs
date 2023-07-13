@@ -168,7 +168,6 @@
                     <input type="text" placeholder="What's on your mind Chirag?" id="create-post">
                     <input type="submit" value="Post" class="btn btn-primary">
                 </form>
-
                 <div class="feeds" id="feeds">
                     <!-- <div class="feed">
                         <div class="head">
@@ -215,50 +214,7 @@
                         <div class="comments text-muted">View all 130 comments</div>
                     </div>
 
-                    <div class="feed">
-                        <div class="head">
-
-                        </div>
-                        <div class="user">
-                            <div class="profile-pic">
-                                <img src="images/profile-15.jpg" alt="">
-                            </div>
-                            <div class="info">
-                                <h3>Chris Brown</h3>
-                                <small>New York, 1 HOUR AGO</small>
-                            </div>
-                            <SPAN class="edit"><i class="uil uil-ellipsis-h"></i></SPAN>
-                        </div>
-
-                        <div class="photo">
-                            <img src="images/feed-2.jpg" alt="">
-                        </div>
-
-                        <div class="action-button">
-                            <div class="interaction-button">
-                                <span><i class="uil uil-thumbs-up"></i></span>
-                                <span><i class="uil uil-comment"></i></span>
-                                <span><i class="uil uil-share"></i></span>
-                            </div>
-                            <div class="bookmark">
-                                <span><i class="uil uil-bookmark"></i></span>
-                            </div>
-                        </div>
-
-                        <div class="liked-by">
-                            <span><img src="images/profile-2.jpg"></span>
-                            <span><img src="images/profile-4.jpg"></span>
-                            <span><img src="images/profile-6.jpg"></span>
-                            ,<p>Liked by <b>Enrest Achiever</b>snd <b>188 others</b></p>
-                        </div>
-
-                        <div class="caption">
-                            <p><b>Chirs Brown</b>Lorem ipsum dolor storiesquiquam eius.
-                                <span class="hash-tag">#lifestyle</span>
-                            </p>
-                        </div>
-                        <div class="comments text-muted">View all 40 comments</div>
-                    </div>
+                   
 
                     <div class="feed">
                         <div class="head">
@@ -623,7 +579,7 @@
         async function myUser() {
             let req = await fetch("http://localhost:9090/myUser")
             let res = await req.json()
-            console.log(res);
+            // console.log(res);
             let usering = document.querySelectorAll("#myUser")
             usering[0].src = res.img
             usering[1].src = res.img
@@ -640,7 +596,7 @@
             // console.log(res);
             let temp = ``;
             for (let i = 0; i < res.length; i++) {
-                console.log(res[i]);
+                // console.log(res[i]);
                 temp += `<div class="feed">
                     <div class="head">
 
@@ -684,6 +640,18 @@
                         </p>
                     </div>
                     <div class="comments text-muted">View all 130 comments</div>
+                    <div class="addComments">
+                            <div class="reaction">
+                                <h3>
+                                  <i class="far fa-smile"></i>
+                                </h3>
+                            </div>
+                            <input type="text"
+                                   class="text"
+                                   placeholder="Add a comment...">
+                                   <button type="submit">Post</button>
+                            <!-- <a href="#">+Post</a> -->
+                        </div>
                 </div>`
 
             }
@@ -692,13 +660,16 @@
             document.getElementById('feeds').innerHTML = temp;
         }
         allpost()
-        async function LikeButton(id){
-            console.log(id);
-            // fetch("http://localhost:9999/addtocart",{
-            //     method: "POST",
-            //     headers:{"Content-Type":"application/json"},
-            //     body:JSON.stringify(data),
-            // })
+        async function LikeButton(data){
+            
+            console.log(data);
+           await fetch("http://localhost:9090/like",{
+                method: "POST",
+                headers:{"Content-Type":"application/json"},
+                body:JSON.stringify({data:data}),
+            })
+            .then((response)=>response.json())
+            .then((response=>console.log(response)))
         }
     </script>
     <script>

@@ -525,7 +525,49 @@
 		display: flex;
 		gap: 1rem;
 	}
-	
+	.addComments {
+		display: flex;
+		align-items: center;
+		margin-top: 20px;
+		/* border-top: 1px solid #ddd; */
+		padding: 10px 0;
+	  }
+		
+	  .addComments button {
+		color: #1d92ffcb;
+		font-weight: 700;
+		cursor: pointer;
+	  }
+		
+	  .addComments .reaction {
+		position: relative;
+		font-size: 1.3rem;
+		margin-right: 10px;
+		color: rgb(88, 88, 88);
+	  }
+	  .addComments input.text {
+		width: 100%;
+		border: none;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.582);
+		outline: none;
+		font-weight: 400;
+		font-size: 14px;
+		color: #262626;
+		background: none;
+	  }
+		
+	  .addComments input.text::placeholder {
+		color: #777;
+	  }
+		
+	  .addComments .postTime {
+		margin-top: 8px;
+		font-weight: lighter;
+		color: rgb(163, 163, 163);
+		font-size: 12px;
+		text-transform: uppercase;
+	  }
+		
 	
 	/* Media queries for responsive website */
 	/* for laptop and big tablets */

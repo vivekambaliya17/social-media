@@ -887,6 +887,16 @@
             })
         })
     </script>
+    <script>
+          async function mylike() {
+            let req = await fetch("http://localhost:9090/findlike")
+            let res = await req.json()
+            console.log(res);
+            let html = ``;
+            
+          }
+          mylike()
+    </script>
 </body>
 
 </html>

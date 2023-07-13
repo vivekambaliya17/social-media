@@ -6,7 +6,20 @@ let post = mongoose.Schema({
     username:String,
     userimg:String,
     userid:{type: mongoose.Schema.Types.ObjectId , ref:"userschema"},
-    comment:[]
+    comments:[
+        {
+            user:{
+                type:mongoose.Schema.Types.ObjectId,
+                ref:"userschema"
+            },
+            comment:{
+                type:String, 
+            }
+
+           
+        },
+        
+    ]
 })
 let userpost = mongoose.model('userpost',post)
 module.exports = userpost
