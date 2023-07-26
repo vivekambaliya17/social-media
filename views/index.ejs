@@ -17,15 +17,16 @@
 <body>
     <nav>
         <div class="container">
-            <h2 class="logo">Vivek Social</h2>
-            <div class="search-bar">
+            <a href="/"><h2 class="logo" >social media</h2></a>
+
+            <!-- <div class="search-bar">
                 <i class="uil uil-search"></i>
                 <input type="search" placeholder="Search for creators, inspirations and projects" />
-            </div>
+            </div> -->
             <div class="create">
-                <label class="btn btn-primary" for="create-post">Create</label>
+                <!-- <label class="btn btn-primary" for="create-post">Create</label> -->
                 <div class="profile-pic">
-                    <img id="myUser" src="images/profile-8.jpg" alt="pic 1" />
+                   <a href="/profilepage"> <img id="myUser" src="images/profile-8.jpg" alt="pic 1" /></a>
                 </div>
             </div>
         </div>
@@ -34,7 +35,7 @@
     <main>
         <div class="container">
             <div class="left">
-                <a class="profile">
+                <!-- <a class="profile">
                     <div class="profile-pic">
                         <img id="myUser" src="./images/profile-8.jpg">
                     </div>
@@ -115,14 +116,14 @@
                         <h3>Settings</h3>
                     </a>
 
-                    <a href="/createpost" class="btn btn-primary" for="create-post">Create Post</a>
-                </div>
+                </div> -->
+                <a href="/createpost" class="btn btn-primary" for="create-post">Create Post</a>
             </div>
 
 
 
             <div class="middle">
-                <div class="stories">
+                <!-- <div class="stories">
                     <div class="story">
                         <div class="profile-pic">
                             <img id="myUser" src="./images/profile-8.jpg" alt="">
@@ -159,15 +160,15 @@
                         </div>
                         <p class="name">Christy Kahea</p>
                     </div>
-                </div>
+                </div> -->
 
-                <form class="create-post">
+                <!-- <form class="create-post">
                     <div class="profile-pic">
                         <img id="myUser" src="images/profile-8.jpg" alt="">
                     </div>
                     <input type="text" placeholder="What's on your mind Chirag?" id="create-post">
                     <input type="submit" value="Post" class="btn btn-primary">
-                </form>
+                </form> -->
                 <div class="feeds" id="feeds">
                     <!-- <div class="feed">
                         <div class="head">
@@ -443,7 +444,7 @@
             </div>
 
             <div class="right">
-                <div class="messages">
+                <!-- <div class="messages">
                     <div class="heading">
                         <h4>Messages</h4>
                         <span><i class="uil uil-edit"></i></span>
@@ -516,57 +517,101 @@
                             <p class="text-bold">3 New Messages</p>
                         </div>
                     </div>
-                </div>
-                <div class="friend-requests">
-                    <h4>Requests</h4>
+                </div> -->
+                <h4>You Are following</h4>
+                <div class="friend-requests" id="following">
+                    
                     <div class="request">
                         <div class="info">
                             <div class="profile-pic">
                                 <img src="images/profile-13.jpg">
                             </div>
-                            <div>
+                            <div class="okkk">
                                 <h5>Wilson Fisk</h5>
-                                <p class="text-muted">8 mutual friends</p>
+                                <!-- <p class="text-muted">8 mutual friends</p> -->
 
                             </div>
+                            <div class="action">
+                                <button class="btn btn-primary">unfollow</button>
+                                <!-- <button class="btn">Decline</button> -->
+                            </div>
                         </div>
-                        <div class="action">
-                            <button class="btn btn-primary">Accept</button>
-                            <button class="btn">Decline</button>
-                        </div>
+                        
                     </div>
                     <div class="request">
                         <div class="info">
                             <div class="profile-pic">
-                                <img src="images/profile-20.jpg">
+                                <img src="images/profile-13.jpg">
                             </div>
-                            <div>
-                                <h5>Srishti Tirkey</h5>
-                                <p class="text-muted">2 mutual friends</p>
+                            <div class="okkk">
+                                <h5>Wilson Fisk</h5>
+                                <!-- <p class="text-muted">8 mutual friends</p> -->
 
                             </div>
+                            <div class="action">
+                                <button class="btn btn-primary">unfollow</button>
+                                <!-- <button class="btn">Decline</button> -->
+                            </div>
                         </div>
-                        <div class="action">
-                            <button class="btn btn-primary">Accept</button>
-                            <button class="btn">Decline</button>
+                        
+                    </div>
+                   
+
+                </div>
+                <h4>Your suggestion</h4>
+                <div class="friend-requests" id="suggestion">
+                    <div class="request">
+                        <div class="info">
+                            <div class="profile-pic">
+                                <img src="images/profile-13.jpg">
+                            </div>
+                            <div class="okkk">
+                                <h5>Wilson Fisk</h5>
+                                <!-- <p class="text-muted">8 mutual friends</p> -->
+
+                            </div>
+                            <div class="action">
+                                <button class="btn btn-primary">unfollow</button>
+                                <!-- <button class="btn">Decline</button> -->
+                            </div>
                         </div>
+                        
+                    </div>
+                    <div class="request" >
+                        <div class="info">
+                            <div class="profile-pic">
+                                <img src="images/profile-13.jpg">
+                            </div>
+                            <div class="okkk">
+                                <h5>Wilson Fisk</h5>
+                                <!-- <p class="text-muted">8 mutual friends</p> -->
+
+                            </div>
+                            <div class="action">
+                                <button class="btn btn-primary">unfollow</button>
+                                <!-- <button class="btn">Decline</button> -->
+                            </div>
+                        </div>
+                        
                     </div>
                     <div class="request">
                         <div class="info">
                             <div class="profile-pic">
-                                <img src="images/profile-5.jpg">
+                                <img src="images/profile-13.jpg">
                             </div>
-                            <div>
-                                <h5>Christ Kahea</h5>
-                                <p class="text-muted">1 mutual friend</p>
+                            <div class="okkk">
+                                <h5>Wilson Fisk</h5>
+                                <!-- <p class="text-muted">8 mutual friends</p> -->
 
                             </div>
+                            <div class="action">
+                                <button class="btn btn-primary">unfollow</button>
+                                <!-- <button class="btn">Decline</button> -->
+                            </div>
                         </div>
-                        <div class="action">
-                            <button class="btn btn-primary">Accept</button>
-                            <button  class="btn">Decline</button>
-                        </div>
+                        
                     </div>
+                   
 
                 </div>
 
@@ -583,8 +628,8 @@
             let usering = document.querySelectorAll("#myUser")
             usering[0].src = res.img
             usering[1].src = res.img
-            usering[2].src = res.img
-            usering[3].src = res.img
+            // usering[2].src = res.img
+            // usering[3].src = res.img
             let USERNAME = document.querySelectorAll("#Username")
             USERNAME[0].innerText = res.username
             USERNAME[1].innerText = res.username
@@ -596,7 +641,7 @@
             // console.log(res);
             let temp = ``;
             for (let i = 0; i < res.length; i++) {
-                // console.log(res[i]);
+                console.log(res[i].like.length);
                 temp += `<div class="feed">
                     <div class="head">
 
@@ -618,7 +663,7 @@
 
                     <div class="action-button">
                         <div class="interaction-button">
-                            <span><i onclick="LikeButton('${res[i]._id}')" class="uil uil-thumbs-up"></i></span>
+                            <span><i onclick="LikeButton('${res[i]._id}',this)" class="uil uil-thumbs-up"></i></span>
                             <span><i class="uil uil-comment"></i></span>
                             <span><i class="uil uil-share"></i></span>
                         </div>
@@ -628,18 +673,10 @@
                     </div>
 
                     <div class="liked-by">
-                        <span><img src="images/profile-15.jpg"></span>
-                        <span><img src="images/profile-16.jpg"></span>
-                        <span><img src="images/profile-17.jpg"></span>
-                        ,<p>Liked by <b>Enrest Achiever</b>snd <b>220 others</b></p>
+                          <p>${res[i].like.length} likes</p>
                     </div>
+                    <p id="comentusername${i}"></p>
 
-                    <div class="caption">
-                        <p><b>Lana Rose</b>Lorem ipsum dolor storiesquiquam eius.
-                            <span class="hash-tag">#lifestyle</span>
-                        </p>
-                    </div>
-                    <div class="comments text-muted">View all 130 comments</div>
                     <div class="addComments">
                             <div class="reaction">
                                 <h3>
@@ -648,9 +685,9 @@
                             </div>
                             <input type="text"
                                    class="text"
+                                   id="comnentno${i}"
                                    placeholder="Add a comment...">
-                                   <button type="submit">Post</button>
-                            <!-- <a href="#">+Post</a> -->
+                                   <button onclick="addComment('${res[i]._id}',${i})">Post</button>
                         </div>
                 </div>`
 
@@ -660,17 +697,193 @@
             document.getElementById('feeds').innerHTML = temp;
         }
         allpost()
-        async function LikeButton(data){
-            
+        async function LikeButton(data,x) {
+            // data.preventDefault();
+            // x.classList.toggle("likeanddislike")
             console.log(data);
-           await fetch("http://localhost:9090/like",{
+            await fetch("http://localhost:9090/like", {
                 method: "POST",
-                headers:{"Content-Type":"application/json"},
-                body:JSON.stringify({data:data}),
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ data: data }),
             })
-            .then((response)=>response.json())
-            .then((response=>console.log(response)))
+                .then((response) => response.json())
+                .then((response => console.log(response)))
+                allpost()
         }
+        async function addComment(postid, no) {
+            let comnentvalue = document.getElementById("comnentno" + no).value
+             document.getElementById("comnentno" + no).value =""
+            console.log(postid, comnentvalue);
+            await fetch(`http://localhost:9090/comments/${postid}`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                     comnentvalue: comnentvalue
+                }),
+            })
+                .then((response) => response.json())
+                .then((response => {
+                    let newadd = ""
+                    for (let i = 0; i < response.length; i++) {
+                    
+                        newadd +=`<p ><span>${response[i].username}</span> <span>${response[i].comment}</span> </p>`
+                       
+                    }
+                    document.getElementById('comentusername'+no).innerHTML = newadd
+                }))
+        }
+       
+        async function alluser() {
+          let res = await fetch(`http://localhost:9090/userfind`)
+            let req = await res.json()
+            let Html = ""
+            for (let i = 0; i < req.length; i++) {
+            //    console.log(req[i]); 
+
+                Html += `<div class="request">
+                        <div class="info">
+                            <div class="profile-pic">
+                                <img src="${req[i].img}">
+                            </div>
+                            <div class="okkk">
+                                <h5>${req[i].username}</h5>
+                                <!-- <p class="text-muted">8 mutual friends</p> -->
+
+                            </div>
+                            <div class="action">
+                                <button class="btn btn-primary " id="followbtn${i}" onclick="FollowUnfollow('${req[i]._id}','${i}')">follow</button>
+                                <!-- <button class="btn">Decline</button> -->
+                            </div>
+                        </div>
+                        
+                    </div>` 
+            }
+            document.getElementById("suggestion").innerHTML = Html
+        }
+        alluser()
+        async function FollowUnfollow(data ,id) {
+            document.getElementById("followbtn"+id).innerText ="unfollow"
+            console.log(id);
+            await fetch(`http://localhost:9090/followunfollow` ,{
+                method:"POST",
+                headers: {"content-type": "application/json" },
+                body:JSON.stringify({
+                    data:data
+                })
+            })
+            .then((response) => response.json())
+            .then((response => console.log(response)));
+            myfollow()
+        }
+        myfollow()
+        async function myfollow() {
+            let res = await fetch(`http://localhost:9090/myfollow`)
+            .then((response) => response.json())
+            .then((response => {
+                let ele = ""
+                for (let i = 0; i < response.length; i++) {
+                    console.log(response[i]); 
+                    ele += `<div class="request" >
+                        <div class="info">
+                            <div class="profile-pic">
+                                <img src="${response[i].img}">
+                            </div>
+                            <div class="okkk">
+                                <h5>${response[i].username}</h5>
+                                <!-- <p class="text-muted">8 mutual friends</p> -->
+
+                            </div>
+                            <div class="action">
+                                <button class="btn btn-primary">unfollow</button>
+                                <!-- <button class="btn">Decline</button> -->
+                            </div>
+                        </div>
+                        
+                    </div>`
+                }
+                document.getElementById("following").innerHTML = ele
+                // console.log(response)
+            }));
+            // let req = await res.json()
+            // console.log("myfollow"+req);
+        }
+        //Prectice
+        // window.document.body.style.cursor = "wait";   
+        // setInterval(lodafun, 1000);
+        // setTimeout(lodaun, 2000);
+        // function lodafun() {
+        //     console.log("1");
+        // }
+        // function lodaun() {
+        //     console.log("2");
+        // }
+        // let a =3
+        // let b =5
+        // a = a + b; //a = 8 b = 5
+        // b = a - b;//b = 3 a= 8
+        // a = a - b;//a = 5
+        // console.log(a);
+        // console.log(b);
+//         function display()  
+// {  
+// var x=102;//integer value    
+// var y=102.7;//floating point value    
+// var z=13e4;//exponent value, output: 130000    
+// var n=new Number(16);//integer value by number object    
+// console.log(x+" "+y+" "+z+" "+n);    
+// }     
+// display();  
+// let rows = 6; 
+// let char = "";
+
+// // External loop
+// for (let i = 1; i <= 6; i++) {
+//   // Internal loop
+//   for (let j = 1; j <= i; j++) {
+//     if (i === 3) {
+//         continue;
+//     }
+//     char += j;
+//   }
+//   if (i === 3) {
+//         continue;
+//     }
+//   char += "\n";
+// }
+// console.log(char);
+// console.log(50 + "\n" + 11);
+
+
+
+
+
+
+// let loop =""
+
+// for (let i = 1; i < 6; i++) {
+//     for (let j = 1; j <= i; j++) {
+//         loop += j
+//     }
+//     loop +=  "\n";
+    
+// }
+// console.log(loop);
+// let rows = 6; 
+// let char = "";
+
+// External loop
+// for (let i = 1; i <= rows; i++) {
+//   // Internal loop
+//   for (let j = 1; j <= 6-i+1; j++) {
+//     if (i === 3) {
+//         continue;
+//     }
+//     char += j;
+//   }
+//   char += "\n";
+// }
+// console.log(char);
+
     </script>
     <script>
         //sidebar

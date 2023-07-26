@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width= , initial-scale=1.0" />
+    <title>vivek social</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- <link rel="stylesheet" href="./styles.css" /> -->
+</head>
+<style>
+    /* :root {
+        font-size: 10px;
+    } */
+    .containers:root {
+        font-size: 10px !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: "Open Sans", Arial, sans-serif;
+        min-height: 100vh;
+        background-color: #fafafa;
+        color: #262626;
+        padding-bottom: 3rem;
+    }
+
+    img {
+        display: block;
+    }
+
+    .containers {
+        max-width: 56.5rem;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .btns {
+        display: inline-block;
+        font: inherit;
+        background: none;
+        border: none;
+        color: inherit;
+        padding: 0;
+        cursor: pointer;
+    }
+
+    .btns:focus {
+        outline: 0.5rem auto #4d90fe;
+    }
+
+    .visually-hidden {
+        position: absolute !important;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+        clip: rect(1px, 1px, 1px, 1px);
+    }
+
+    /* profiles Section */
+
+    .profiles {
+        padding: 1rem 0;
+    }
+
+    .profiles::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    .profiles-image {
+        float: left;
+        width: calc(33.333% - 1rem);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 3rem;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    .profiles-image img {
+        border-radius: 50%;
+        width: 70%;
+        height: 70%;
+    }
+
+    .profiles-user-settings,
+    .profiles-stats,
+    .profiles-bio {
+        float: left;
+        width: calc(66.666% - 2rem);
+    }
+
+    .profiles-user-settings {
+        margin-top: 1.1rem;
+    }
+
+    .profiles-user-name {
+        display: inline-block;
+        font-size: 1.6rem;
+        font-weight: 300;
+    }
+
+    .profiles-edit-btn {
+        font-size: 1rem;
+        line-height: 1.8;
+        border: 0.1rem solid #dbdbdb;
+        border-radius: 0.3rem;
+        padding: 0 2.4rem;
+        margin-left: 2rem;
+    }
+
+    .profiles-settings-btn {
+        font-size: 1rem;
+        margin-left: 1rem;
+    }
+
+    .profiles-stats {
+        margin-top: 2.3rem;
+    }
+
+    .profiles-stats li {
+        display: inline-block;
+        font-size: 1.4rem;
+        line-height: 1.5;
+        margin-right: 4rem;
+        cursor: pointer;
+    }
+
+    .profiles-stats li:last-of-type {
+        margin-right: 0;
+    }
+
+    .profiles-bio {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        margin-top: 2.3rem;
+    }
+
+    .profiles-real-name,
+    .profiles-stat-count,
+    .profiles-edit-btn {
+        font-weight: 600;
+    }
+
+    /* Gallery Section */
+
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -1rem -1rem;
+        padding-bottom: 3rem;
+    }
+
+    .gallery-item {
+        position: relative;
+        flex: 1 0 22rem;
+        margin: 1rem;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .gallery-item:hover .gallery-item-info,
+    .gallery-item:focus .gallery-item-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .gallery-item-info {
+        display: none;
+    }
+
+    .gallery-item-info li {
+        display: inline-block;
+        font-size: 1.7rem;
+        font-weight: 600;
+    }
+
+    .gallery-item-likes {
+        margin-right: 2.2rem;
+    }
+
+    .gallery-item-type {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: 2.5rem;
+        text-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.1);
+    }
+
+    .fa-clone,
+    .fa-comment {
+        transform: rotateY(180deg);
+    }
+
+    .gallery-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Loader */
+
+    .loader {
+        width: 5rem;
+        height: 5rem;
+        border: 0.6rem solid #999;
+        border-bottom-color: transparent;
+        border-radius: 50%;
+        margin: 0 auto;
+        animation: loader 500ms linear infinite;
+    }
+
+    /* Media Query */
+
+    @media screen and (max-width: 40rem) {
+        .profiles {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 4rem 0;
+        }
+
+        .profiles::after {
+            display: none;
+        }
+
+        .profiles-image,
+        .profiles-user-settings,
+        .profiles-bio,
+        .profiles-stats {
+            float: none;
+            width: auto;
+        }
+
+        .profiles-image img {
+            width: 7.7rem;
+        }
+
+        .profiles-user-settings {
+            flex-basis: calc(100% - 10.7rem);
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .profiles-user-name {
+            font-size: 2.2rem;
+        }
+
+        .profiles-edit-btn {
+            order: 1;
+            padding: 0;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .profiles-edit-btn {
+            margin-left: 0;
+        }
+
+        .profiles-bio {
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+        }
+
+        .profiles-edit-btn,
+        .profiles-bio,
+        .profiles-stats {
+            flex-basis: 100%;
+        }
+
+        .profiles-stats {
+            order: 1;
+            margin-top: 1.5rem;
+        }
+
+        .profiles-stats ul {
+            display: flex;
+            text-align: center;
+            padding: 1.2rem 0;
+            border-top: 0.1rem solid #dadada;
+            border-bottom: 0.1rem solid #dadada;
+        }
+
+        .profiles-stats li {
+            font-size: 1.4rem;
+            flex: 1;
+            margin: 0;
+        }
+
+        .profiles-stat-count {
+            display: block;
+        }
+    }
+
+    /* Spinner Animation */
+
+    @keyframes loader {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+
+    @supports (display: grid) {
+        .profiles {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            grid-template-rows: repeat(3, auto);
+            grid-column-gap: 3rem;
+            align-items: center;
+        }
+
+        .profiles-image {
+            grid-row: 1 / -1;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(15rem, 0fr));
+            grid-gap: 2rem;
+        }
+
+        .profiles-image,
+        .profiles-user-settings,
+        .profiles-stats,
+        .profiles-bio,
+        .gallery-item,
+        .gallery {
+            width: auto;
+            margin: 0;
+        }
+
+        @media (max-width: 40rem) {
+            .profiles {
+                grid-template-columns: auto 1fr;
+                grid-row-gap: 1.5rem;
+            }
+
+            .profiles-image {
+                grid-row: 1 / 2;
+            }
+
+            .profiles-user-settings {
+                display: grid;
+                grid-template-columns: auto 1fr;
+                grid-gap: 1rem;
+            }
+
+            .profiles-edit-btn,
+            .profiles-stats,
+            .profiles-bio {
+                grid-column: 1 / -1;
+            }
+
+            .profiles-user-settings,
+            .profiles-edit-btn,
+            .profiles-settings-btn,
+            .profiles-bio,
+            .profiles-stats {
+                margin: 0;
+            }
+        }
+
+        [data-tab-content] {
+            display: none;
+        }
+
+        .active[data-tab-content] {
+            display: block;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            border-bottom: 1px solid black;
+            margin-bottom: 15px;
+        }
+
+        .tab {
+            cursor: pointer;
+            padding: 10px;
+            font-size: 30px;
+        }
+
+        .tab.active {
+            background-color: #CCC;
+        }
+
+        .tab:hover {
+            background-color: #AAA;
+        }
+
+        .tab-content {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+    }
+
+    main .container {
+        display: grid;
+        grid-template-columns: 18vw auto;
+        gap: 2rem;
+        position: relative;
+    }
+
+    .btns2 {
+        /* margin-top: 5px; */
+        margin:0px 1rem 0px 1rem;
+        font-weight: 500;
+    }
+</style>
+
+<body>
+    <nav>
+        <div class="container">
+            <a href="/">
+                <h2 class="logo">social media</h2>
+            </a>
+            <div class="create">
+                <div class="profile-pic">
+                    <a href="/profilepage"> <img id="myUser" src="images/profile-8.jpg" alt="pic 1" /></a>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="containers">
+            <div class="profiles">
+
+                <div class="profiles-image">
+
+                    <img id="myUser"
+                        src="https://images.unsplash.com/photo-1513721032312-6a18a42c8763?w=152&h=152&fit=crop&crop=faces"
+                        alt="">
+
+                </div>
+
+                <div class="profiles-user-settings">
+
+                    <h1 class="profiles-user-name" id="Username">janedoe_</h1>
+
+                    <a href="/editprofile" class="btns profiles-edit-btn">Edit profiles</a>
+                </div>
+
+                <div class="profiles-stats">
+
+                    <ul>
+                        <!-- <li><span class="profiles-stat-count">164</span> posts</li> -->
+                        <li><span class="profiles-stat-count">188</span> followers</li>
+                        <li><span class="profiles-stat-count">206</span> following</li>
+                    </ul>
+
+                </div>
+
+                <div class="profiles-bio">
+
+                    <p><span class="profiles-real-name" id="userbio">Jane Doe</p>
+
+                </div>
+                <button class="btns btns2 profiles-edit-btn">Create Post</button>
+
+            </div>
+            <ul class="tabs">
+                <li data-tab-target="#home" class="active tab">post</li>
+                <li data-tab-target="#pricing" class="tab">like</li>
+                <!-- <li data-tab-target="#about" class="tab">saved</li> -->
+            </ul>
+            <div class="tab-content">
+                <div id="home" data-tab-content class="active">
+                    <div class="gallery" id="MYpost"></div>
+                    <h1>fsdfsdljz j</h1>
+
+
+                </div>
+                <div id="pricing" data-tab-content>
+                    <div class="gallery" id="gallery"></div>
+
+                </div>
+                <!-- <div id="about" data-tab-content>
+                    <h1>About</h1>
+                    <p>Let me tell you about me</p>
+                </div> -->
+            </div>
+
+            <!-- End of gallery -->
+
+            <!-- <div class="loader"></div> -->
+
+        </div>
+    </main>
+    <script>
+        const tabs = document.querySelectorAll('[data-tab-target]')
+        const tabContents = document.querySelectorAll('[data-tab-content]')
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = document.querySelector(tab.dataset.tabTarget)
+                tabContents.forEach(tabContent => {
+                    tabContent.classList.remove('active')
+                })
+                tabs.forEach(tab => {
+                    tab.classList.remove('active')
+                })
+                tab.classList.add('active')
+                target.classList.add('active')
+            })
+        })
+    </script>
+    <script>
+        async function mylike() {
+            let req = await fetch("http://localhost:9090/findlike")
+            let res = await req.json()
+            console.log(res);
+            let html = ``;
+            for (let i = 0; i < res.length; i++) {
+                // const element = array[i];
+                html += ` <div class="gallery-item" tabindex="0">
+
+                    <img src="${res[i].img}"
+                        class="gallery-image" alt="">
+
+                        <div class="gallery-item-info">
+
+                            
+
+                        </div>
+
+                </div>`
+
+            }
+            document.getElementById("gallery").innerHTML = html
+
+        }
+        mylike()
+        async function myUser() {
+            let req = await fetch("http://localhost:9090/myUser")
+            let res = await req.json()
+            console.log(res);
+            let usering = document.querySelectorAll("#myUser")
+            usering[0].src = res.img
+            usering[1].src = res.img
+            let USERNAME = document.querySelectorAll("#Username")
+            USERNAME[0].innerHTML = res.username
+            let Userbio = document.querySelectorAll("#userbio")
+            Userbio[0].innerHTML = res.userbio
+        }
+        myUser()
+        async function mypost() {
+            let req = await fetch("http://localhost:9090/mypost")
+            let res = await req.json()
+            console.log(res);
+            // let html = ``;
+            // for (let i = 0; i < res.length; i++) {
+            //     // const element = array[i];
+            //     html += ` <div class="gallery-item" tabindex="0">
+
+            //         <img src="${res[i].img}"
+            //             class="gallery-image" alt="">
+
+            //             <div class="gallery-item-info">
+
+                            
+
+            //             </div>
+
+            //     </div>`
+
+            // }
+            // document.getElementById("gallery").innerHTML = html
+
+        }
+        mypost()
+        mylike()
+    </script>
+</body>
+
+</html>

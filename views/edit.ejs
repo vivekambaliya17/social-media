@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width= , initial-scale=1.0" />
+    <title>vivek social</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<style>
+    .update-profile-container {
+        max-width: 960px;
+        margin-inline: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 160px;
+        gap: 70px;
+    }
+
+    .update-profile form {
+        row-gap: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .update-profile input {
+        width: 70%;
+        padding: 10px;
+    }
+
+    .update-profile form h1 {
+        margin-bottom: 15px;
+    }
+
+    .update-profile form button {
+        width: fit-content;
+        padding: 10px;
+        border-radius: 4px;
+        outline: none;
+        cursor: pointer;
+        border: none;
+    }
+
+    .input-user-img {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .user-img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .userimage {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 2px dashed black;
+    }
+
+    .userimage img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* border-radius: 50%; */
+    }
+
+    .inputImage {
+        display: none;
+    }
+
+    .update-profile-btn {
+        display: flex;
+        gap: 15px;
+    }
+
+    .dlt-btn {
+        background-color: red;
+        color: white;
+    }
+
+    .user-img img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        /* object-fit: cover; */
+    }
+</style>
+
+<body>
+    <nav>
+        <div class="container">
+            <a href="/">
+                <h2 class="logo">social media</h2>
+            </a>
+            <div class="create">
+                <div class="profile-pic">
+                    <a href="/profilepage"> <img id="myUser" src="images/profile-8.jpg" alt="pic 1" /></a>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+
+        <div class="update-profile">
+            <div class="update-profile-container">
+                <div class="update-left-side">
+                    <div class="input-user-img">
+                        <label for="inputImage" class="userimage">
+                            <img src="../assets/user.png" alt="" class="user-img" id="myUser">
+                        </label>
+                        <input class="inputImage" id="inputImage" type="file" accept="image/*">
+                    </div>
+                </div>
+                <div class="update-right-side">
+                    <form action="/editprofile" id="update-profile-form" method="post" >
+                        <h1>Update Your Profile Here</h1>
+                        <input placeholder="Your Name" type="text" id="Username" name="username">
+                        <input placeholder="Your Bio" type="text" id="userbio" name="userbio">
+                        <div class="update-profile-btn">
+                            <button type="submit"  id="submitProfileBtn">Submit Profile</button>
+                            <button class="dlt-btn" id="deleteAccountBtn">Delete Account</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <script>
+       async function submitbtn() {
+            let USERNAME = document.getElementById("Username").value
+                let userbio = document.getElementById("userbio").value
+                
+                await fetch("http://localhost:9090/editprofile", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        username: USERNAME,
+                        userbio: userbio
+                    }),
+                })
+                    .then(response => response.json())
+                    .then(response => console.log(response))
+        }
+        async function myUser() {
+            let req = await fetch("http://localhost:9090/myUser")
+            let res = await req.json()
+            console.log(res);
+            let usering = document.querySelectorAll("#myUser")
+            usering[0].src = res.img
+            usering[1].src = res.img
+            let USERNAME = document.querySelectorAll("#Username")
+            USERNAME[0].value = res.username
+            let Userbio = document.querySelectorAll("#userbio")
+            Userbio[0].value = res.userbio
+        }
+        myUser()
+        function submitProfileBtn(event) {
+            console.log("134");
+            //     let USERNAME = document.getElementById("Username")
+            //     let userbio = document.getElementById("userbio")
+            //     await fetch("http://localhost:9090/editprofile", {
+            //         method: "POST",
+            //         headers: { "Content-Type": "application/json" },
+            //         body: JSON.stringify({
+            //             username: USERNAME,
+            //             userbio: userbio
+            //         }),
+            //     })
+            //         .then(response => response.json())
+            //         .then(response => console.log(response))
+
+        }
+    </script>
+
+</body>
+
+</html>
